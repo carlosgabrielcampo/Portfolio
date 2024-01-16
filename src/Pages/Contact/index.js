@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import AnimatedLetters from '../../components/AnimatedLetters'
 import './index.scss'
@@ -11,14 +10,16 @@ import 'leaflet/dist/leaflet.css'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate-hover')
-  const form = useRef()
   const position = [-37.82435, 144.96353]
+  console.log(process.env)
+  const sendEmail = (e, ref) => {
+    const apiKey = process.env.REACT_APP_API_KEY;
 
-  const sendEmail = (e) => {
+    console.log({e, ref, apiKey})
     e.preventDefault()
 
     emailjs
-      .sendForm('gmail', 'service_my6weus', form.current, 'your-token')
+      .sendForm('service_my6weus', 'template_werh2s9', ref, "xRsrvA_VRFvsJqC8k")
       .then(
         () => {
           alert('Message successfully sent!')
@@ -47,7 +48,7 @@ const Contact = () => {
             questions, contact me using the form below.
           </p>
           <div className='form_contact'>
-            <Form ref={form} onsubmit={sendEmail}/>
+            <Form onsubmit={sendEmail}/>
           </div>
         </div>
         <div className="info-map">

@@ -1,8 +1,11 @@
 import './index.scss'
-const Form = ({ref, onsubmit}) => {
-    console.log(ref, onsubmit)
+import { useRef } from 'react'
+
+const Form = ({onsubmit}) => {
+    const form = useRef();
+    
     return (
-        <form ref={ref} onSubmit={onsubmit}>
+        <form ref={form} onSubmit={(e) => onsubmit(e, form.current)}>
                 <input placeholder="Name" type="text" name="name" required />
                 <div className='email_subject'>
                 <input
