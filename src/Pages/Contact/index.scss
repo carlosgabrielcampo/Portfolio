@@ -1,0 +1,39 @@
+  .form_contact {
+    opacity: 0;
+    animation: fadeInUp 2s 2s forwards;
+  }
+
+  .map-container {
+    background: rgba(8, 253, 216, 0.1);
+    position: absolute;
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+  }
+  
+  .info-map {
+    border: solid;
+    position: absolute;
+    background: #00000052;
+    top: 80px;
+    left: 50%;
+    z-index: 999999;
+    width: 267px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Helvetica';
+    font-size: 17px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s;
+    animation-fill-mode: forwards;
+  
+    span {
+      font-size: 16px;
+  
+      span {
+        color: #ffd700;
+      }
+    }
+  }
